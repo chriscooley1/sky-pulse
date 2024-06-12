@@ -7,26 +7,38 @@ document.addEventListener("DOMContentLoaded", async function() {
         const forecast = data.properties.periods;
 
         const currentWeather = forecast.filter((weather, index) => index === 0);
+        const weatherAlert = forecast.filter((weather) => weather.type === "weather-alert");
         const dailyWeather = forecast.slice(0, 24);
 
         const current = currentWeather.map((c) => c.name || `Current Temperature: ${c.temperature} ${c.temperatureUnit}`);
+        const alert = weatherAlert.map((a) => a.name);
         const daily = dailyWeather.map((d) => `Hour ${d.startTime}: ${d.temperature} ${d.temperatureUnit}`);
-            
-        addWeather("current", current);
-        addWeather("daily", daily);
+
+        document.getElementById("current-weather-btn").addEventListener("click", function(event) {
+            event.preventDefault();
+            addWeatherToCard("current-weather-list", current);
+        });
+        document.getElementById("weather-alerts-btn").addEventListener("click", function(event) {
+            event.preventDefault();
+            addWeatherToCard("weather-alerts-list", alert);
+        });
+        document.getElementById("daily-forecast-btn").addEventListener("click", function(event) {
+            event.preventDefault();
+            addWeatherToCard("daily-forecast-list", daily);
+        });
 
     } catch (err) {
         document.getElementById("demo").innerHTML = err.name;
     }
 });
 
-const addWeather = (type, weatherData) => {
+const addWeatherToCard = (listId, weatherData) => {
     for (let i = 0; i < weatherData.length; i++) {
         const weatherItem = document.createElement("li");
         weatherItem.innerHTML = weatherData[i];
-        weatherItem.className = "dropdown-item";
+        weatherItem.className = "list-group-item";
 
-        const dropdown = document.querySelector(`#${type} ul`);
-        dropdown.appendChild(weatherItem);
+        const list = document.getElementById(listId);
+        list.appendChild(weatherItem);
     }
 }
