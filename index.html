@@ -104,12 +104,20 @@
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                     <a id="daily-forecast-btn" href="#" class="btn btn-primary">24 Hour Forecast</a>
                     <ul class="list-group mt-3" id="daily-forecast-list"></ul>
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
     </div>
 
+    <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/>
+
+    <script type="module" src="dimensions.js"></script>
+
     <script src="javascript/main.js"></script>
+    <script src="javascript/acquisitions.js"></script>
+    <script src="javascript/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
