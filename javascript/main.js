@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         const current = currentWeather.map((c) => c.name || `Current Temperature: ${c.temperature} ${c.temperatureUnit}`);
         const alert = weatherAlert.map((a) => `${a.startTime}: ${a.shortForecast}`);
-        const daily = dailyWeather.map((d) => `Hour ${new Date(d.startTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}: ${d.temperature} ${d.temperatureUnit}`);
 
         const weatherLabels = dailyWeather.map(d => new Date(d.startTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
         const weatherData = dailyWeather.map(d => d.temperature);
@@ -50,18 +49,8 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         });
 
-        document.getElementById("current-weather-btn").addEventListener("click", function(event) {
-            event.preventDefault();
-            addWeatherToCard("current-weather-list", current);
-        });
-        document.getElementById("weather-alerts-btn").addEventListener("click", function(event) {
-            event.preventDefault();
-            addWeatherToCard("weather-alerts-list", alert);
-        });
-        document.getElementById("daily-forecast-btn").addEventListener("click", function(event) {
-            event.preventDefault();
-            addWeatherToCard("daily-forecast-list", daily);
-        });
+        addWeatherToCard("current-weather-list", current);
+        addWeatherToCard("weather-alerts-list", alert);
 
     } catch (err) {
         document.getElementById("demo").innerHTML = err.name;

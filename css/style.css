@@ -1,69 +1,109 @@
 body {
-    background-color: #1f1f1f;
-    color: #d7d7d7;
-    font-family: Arial, san-serif;
+  background-color: #1f1f1f;
+  color: #d7d7d7;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+}
+
+.navbar-toggler-icon::before {
+  top: -6px;
+}
+
+.navbar-toggler-icon::after {
+  top: 6px;
 }
 
 /* Bordered form */
 form {
-    border: 3px solid #f1f1f1;
+  border: 3px solid #f1f1f1;
 }
 
-  /* Full-width inputs */
+/* Full-width inputs */
 input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-  /* Set a style for all buttons */
+/* Set a style for all buttons */
 button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
-  /* Add a hover effect for buttons */
+/* Add a hover effect for buttons */
 button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
-  /* Extra style for the cancel button (red) */
+/* Extra style for the cancel button (red) */
 .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
 }
 
-  /* Add padding to containers */
+/* Add padding to containers */
 .container {
-    padding: 16px;
+  padding: 16px;
 }
 
-  /* The "Forgot password" text */
+/* The "Forgot password" text */
 span.psw {
-    float: right;
-    padding-top: 16px;
+  float: right;
+  padding-top: 16px;
 }
 
-  /* Change styles for span and cancel button on extra small screens */
+/* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
+  span.psw {
+      display: block;
+      float: none;
+  }
+  .cancelbtn {
+      width: 100%;
+  }
 }
 
-class {
-    background-color: #1f1f1f;
+.chart-container {
+  width: 100%; /* Changed to full width */
+  margin-bottom: 16px;
 }
+
+.card-title {
+  color: #04AA6D;
+}
+
+/* Additional CSS to ensure button width */
+@media (min-width: 576px) {
+  .btn-sm {
+    width: auto; /* Ensures the button does not stretch to full width */
+  }
+}
+
