@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const weatherLabels = dailyWeather.map(d => new Date(d.startTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
         const weatherData = dailyWeather.map(d => d.temperature);
 
-        const ctx = document.getElementById("myChart");
+        const ctx = document.getElementById("myChart").getContext("2d");
 
         new Chart(ctx, {
             type: "line",
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                 datasets: [{
                     label: "Temperature (°F)",
                     data: weatherData,
-                    borderColor: "rgba(75, 192, 192, 1)",
-                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: getComputedStyle(document.querySelector('.chart-line')).getPropertyValue('border-color').trim(),
+                    backgroundColor: getComputedStyle(document.querySelector('.chart-line')).getPropertyValue('background-color').trim(),
                     borderWidth: 2
                 }]
             },
