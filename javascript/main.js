@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 document.addEventListener("DOMContentLoaded", async function() {
     try {
@@ -28,15 +28,46 @@ document.addEventListener("DOMContentLoaded", async function() {
         const ctx = document.getElementById("myChart").getContext("2d");
 
         new Chart(ctx, {
-            type: "line",
+            type: "bar",
             data: {
                 labels: weatherLabels,
                 datasets: [{
                     label: "Temperature (°F)",
                     data: weatherData,
-                    borderColor: getComputedStyle(document.querySelector('.chart-line')).getPropertyValue('border-color').trim(),
-                    backgroundColor: getComputedStyle(document.querySelector('.chart-line')).getPropertyValue('background-color').trim(),
-                    borderWidth: 2
+                    backgroundColor: weatherData.map(temp => {
+                        if (temp <= 32) {
+                            return "rgba(0, 0, 255, 0.6)"; // Blue for freezing temperatures
+                        } else if (temp <= 65) {
+                            return "rgba(0, 255, 255, 0.6)"; // Cyan for cold temperatures
+                        } else if (temp <= 75) {
+                            return "rgba(0, 255, 0, 0.6)"; // Green for temperatures between 65 and 75
+                        } else if (temp <= 90) {
+                            return "rgba(255, 255, 0, 0.6)"; // Yellow for temperatures between 75 and 90
+                        } else {
+                            return "rgba(255, 0, 0, 0.6)"; // Red for temperatures greater than 90
+                        }
+                    }),
+                    borderColor: weatherData.map(temp => {
+                        if (temp <= 32) {
+                            return "rgba(0, 0, 255, 1)";
+                        } else if (temp <= 65) {
+                            return "rgba(0, 255, 255, 1)";
+                        } else if (temp <= 75) {
+                            return "rgba(0, 255, 0, 1)";
+                        } else if (temp <= 90) {
+                            return "rgba(255, 255, 0, 1)";
+                        } else {
+                            return "rgba(255, 0, 0, 1)";
+                        }
+                    }),
+                    borderWidth: 1,
+                    datalabels: {
+                        anchor: "end",
+                        align: "end",
+                        offset: 4,
+                        display: "auto",
+                        color: "#fff"
+                    }
                 }]
             },
             options: {
@@ -53,6 +84,14 @@ document.addEventListener("DOMContentLoaded", async function() {
                             display: true,
                             text: "Time"
                         }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    datalabels: {
+                        color: "#fff"
                     }
                 }
             }
@@ -76,4 +115,4 @@ const addWeatherToCard = (listId, weatherData) => {
         const list = document.getElementById(listId);
         list.appendChild(weatherItem);
     }
-}
+};
