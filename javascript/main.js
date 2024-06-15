@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 document.addEventListener("DOMContentLoaded", async function() {
     try {
@@ -36,28 +36,28 @@ document.addEventListener("DOMContentLoaded", async function() {
                     data: weatherData,
                     backgroundColor: weatherData.map(temp => {
                         if (temp <= 32) {
-                            return "rgba(0, 0, 255, 0.6)"; // Blue for freezing temperatures
+                            return "#0000FF"; // Blue for freezing temperatures
                         } else if (temp <= 65) {
-                            return "rgba(0, 255, 255, 0.6)"; // Cyan for cold temperatures
+                            return "#00FFFF"; // Cyan for cold temperatures
                         } else if (temp <= 75) {
-                            return "rgba(0, 255, 0, 0.6)"; // Green for temperatures between 65 and 75
+                            return "#00FF00"; // Green for temperatures between 65 and 75
                         } else if (temp <= 90) {
-                            return "rgba(255, 255, 0, 0.6)"; // Yellow for temperatures between 75 and 90
+                            return "#FFFF00"; // Yellow for temperatures between 75 and 90
                         } else {
-                            return "rgba(255, 0, 0, 0.6)"; // Red for temperatures greater than 90
+                            return "#FF0000"; // Red for temperatures greater than 90
                         }
                     }),
                     borderColor: weatherData.map(temp => {
                         if (temp <= 32) {
-                            return "rgba(0, 0, 255, 1)";
+                            return "#0000FF";
                         } else if (temp <= 65) {
-                            return "rgba(0, 255, 255, 1)";
+                            return "#00FFFF";
                         } else if (temp <= 75) {
-                            return "rgba(0, 255, 0, 1)";
+                            return "#00FF00";
                         } else if (temp <= 90) {
-                            return "rgba(255, 255, 0, 1)";
+                            return "#FFFF00";
                         } else {
-                            return "rgba(255, 0, 0, 1)";
+                            return "#FF0000";
                         }
                     }),
                     borderWidth: 1,

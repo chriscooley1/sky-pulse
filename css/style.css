@@ -161,3 +161,95 @@ span.psw {
 .contact-container {
   margin-top: 5rem;
 }
+
+/* Custom chart colors based on temperature ranges */
+.chart-container {
+  width: 100%;
+  margin-bottom: 16px;
+  position: relative; /* Ensure relative positioning for tooltip */
+}
+
+.chart-line {
+  border-color: #0d6efd;
+  background-color: #f1f1f1;
+}
+
+/* Tooltip styling */
+.chart-container .chartjs-render-monitor .chartjs-tooltip {
+  background: #FFFFFFCC;
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px #0000001A;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  opacity: 1;
+  padding: 8px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  visibility: hidden;
+  z-index: 100;
+}
+
+/* Show tooltip on hover */
+.chart-container .chartjs-render-monitor .chartjs-tooltip.active {
+  visibility: visible;
+}
+
+/* Adjust chartjs tooltip caret */
+.chart-container .chartjs-render-monitor .chartjs-tooltip::before {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 0;
+}
+
+/* Position tooltip caret */
+.chart-container .chartjs-render-monitor .chartjs-tooltip::after {
+  border-color: #FFFFFFCC transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* About Page Styling */
+.about-container {
+  margin-top: 5rem;
+}
+
+.about-container .card-header {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* FAQ Page Styling */
+.faq-container {
+  margin-top: 5rem;
+}
+
+/* Contact Page Styling */
+.contact-container {
+  margin-top: 5rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+  .chart-container {
+    margin-bottom: 8px;
+  }
+
+  .chart-container .chartjs-render-monitor .chartjs-tooltip {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
