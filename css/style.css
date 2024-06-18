@@ -149,20 +149,22 @@ span.psw {
 
 /* Reset styles for the navbar toggler icon to default Bootstrap */
 .navbar-toggler-icon {
-    width: 20px;
-    height: 2px;
-    background-color: #fff;
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
 }
 
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: #fff;
-    position: absolute;
-    left: 0;
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
 }
 
 .navbar-toggler-icon::before {
