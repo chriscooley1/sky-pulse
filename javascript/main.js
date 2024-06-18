@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                     backgroundColor: weatherData.map(temp => {
                         if (temp <= 32) {
                             return "#0000FF"; // Blue for freezing temperatures
-                        } else if (temp <= 65) {
+                        } else if (temp <= 60) {
                             return "#00FFFF"; // Cyan for cold temperatures
                         } else if (temp <= 75) {
-                            return "#00FF00"; // Green for temperatures between 65 and 75
+                            return "#00FF00"; // Green for temperatures between 60 and 75
                         } else if (temp <= 90) {
                             return "#FFFF00"; // Yellow for temperatures between 75 and 90
                         } else {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     borderColor: weatherData.map(temp => {
                         if (temp <= 32) {
                             return "#0000FF";
-                        } else if (temp <= 65) {
+                        } else if (temp <= 60) {
                             return "#00FFFF";
                         } else if (temp <= 75) {
                             return "#00FF00";
