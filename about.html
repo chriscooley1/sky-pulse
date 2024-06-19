@@ -26,17 +26,7 @@
             </div>
         </div>
     </div>
-    <script>
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                const indexElements = document.getElementById("index-only-elements");
-                if (indexElements) {
-                    indexElements.style.display = "none";
-                }
-            });
-    </script>
+    <script src="script/loadheader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
